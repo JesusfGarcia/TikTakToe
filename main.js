@@ -92,7 +92,7 @@ verifyWinner = async () => {
 	arrayResults.map((result, index) => {
 		result === 3 && drawLine(index, result)
 		result === -3 && drawLine(index, result)
-	}).
+	})
 }
 
 verifyDraw = () => {
@@ -106,58 +106,74 @@ verifyDraw = () => {
 }
 
 drawLine = (line, result) => {
+	let ganador = ''
+	result === 3
+		? (ganador = 'Han ganado las X')
+		: result === -3
+		? (ganador = 'Han ganado las O')
+		: null
 	switch (line) {
 		case 0:
 			document.getElementById('btn1').style.color = 'red'
 			document.getElementById('btn2').style.color = 'red'
 			document.getElementById('btn3').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 1:
 			document.getElementById('btn4').style.color = 'red'
 			document.getElementById('btn5').style.color = 'red'
 			document.getElementById('btn6').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 2:
 			document.getElementById('btn7').style.color = 'red'
 			document.getElementById('btn8').style.color = 'red'
 			document.getElementById('btn9').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 3:
 			document.getElementById('btn1').style.color = 'red'
 			document.getElementById('btn4').style.color = 'red'
 			document.getElementById('btn7').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 4:
 			document.getElementById('btn2').style.color = 'red'
 			document.getElementById('btn5').style.color = 'red'
 			document.getElementById('btn8').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 5:
 			document.getElementById('btn3').style.color = 'red'
 			document.getElementById('btn6').style.color = 'red'
 			document.getElementById('btn9').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 6:
 			document.getElementById('btn1').style.color = 'red'
 			document.getElementById('btn5').style.color = 'red'
 			document.getElementById('btn9').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 7:
 			document.getElementById('btn3').style.color = 'red'
 			document.getElementById('btn5').style.color = 'red'
 			document.getElementById('btn7').style.color = 'red'
+			document.getElementById('labelResult').innerText = ganador
 			end = true
 			break
 		case 8:
-			end = true
-			alert('empate')
+			if (end === false) {
+				document.getElementById('labelResult').innerText = 'EMPATE!!'
+			}
+
 		default:
 			break
 	}
